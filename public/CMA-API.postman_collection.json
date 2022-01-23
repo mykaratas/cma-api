@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "eb089f7d-03c8-48c4-881d-0536f19b0972",
+		"name": "CMA-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Singup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"9qq123345@mk.com\",\n    \"password\": \"12345678\",\n    \"birthDate\": \"11-22-2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/signup",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDI5NTgyNTQsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0Mjk1ODI1NCwiZXhwIjoxNjQyOTYxODU0LCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.cTC7pNOTUFE4npQrmZJa_lmOVsdQc3XqOU_VRLrd66Cl_X3Y8FLHqToc0nE13-YUpVaBPqWpumiVPkeS07snTe1U5kAurHrpoIgD2msZx0xgM6Yzf0pCFomHn1HICy8nGu1enKvHBZuoNwZf0GwSeu2DIvPfmGzxTc8wZqIK6t2FXk54SHoZ4aHU1H8lrJvdKFUAkhomSS3IyvoGeh5E4MDkcANcfZuK5pINjq9233y8OwJf7k7Q0sqSq2vPyZVsvIp6g-qJngT7geTcV-xIqo8IeYzm9L9bra3cBxJUASX8phFrXs23FbY3S3tH1qVSmBJUdGBi1E8dDSeRnuGyRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"9qq123345@mk.com\", \n  \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/login",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ping",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQwMTU0NmJkMWRhMzA0ZDc2NGNmZWUzYTJhZTVjZDBlNGY2ZjgyN2IiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDI4MDA0MjQsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0MjgwMDQyNCwiZXhwIjoxNjQyODA0MDI0LCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.SDNGml500agMHEs9zn_o6pJBRVVqPyZfaFn3ChKLXrNdCyC4gTbwcROWChD-sBgRNBTdzFQIyYVmXZM5ar9IXQ2mvvohf7BYOrxvn6OhJbkfqdh-KvhftjBbIBvbH26I5k2amwqSJOJDRPBiyvK22F7h9wB1uz2QfpvhQIHJYlq2t7Arzz0DOLm0PHcgQlw-B3r5wp7O1Xt8F5ZV0JocmVdN20v1JU9Qu-tnUCUbHXy9H85c_iZIdEeG18fx59lO530bLDnO5I5Pio8Nda5TSoC3-3geL0yTryJmmHhZYSD524rSXfxsGnobvccp2Xdbui9F_Biahv_Bn2DUzezliw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/ping",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "whoAmI",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQwMTU0NmJkMWRhMzA0ZDc2NGNmZWUzYTJhZTVjZDBlNGY2ZjgyN2IiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDI4MDA0MjQsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0MjgwMDQyNCwiZXhwIjoxNjQyODA0MDI0LCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.SDNGml500agMHEs9zn_o6pJBRVVqPyZfaFn3ChKLXrNdCyC4gTbwcROWChD-sBgRNBTdzFQIyYVmXZM5ar9IXQ2mvvohf7BYOrxvn6OhJbkfqdh-KvhftjBbIBvbH26I5k2amwqSJOJDRPBiyvK22F7h9wB1uz2QfpvhQIHJYlq2t7Arzz0DOLm0PHcgQlw-B3r5wp7O1Xt8F5ZV0JocmVdN20v1JU9Qu-tnUCUbHXy9H85c_iZIdEeG18fx59lO530bLDnO5I5Pio8Nda5TSoC3-3geL0yTryJmmHhZYSD524rSXfxsGnobvccp2Xdbui9F_Biahv_Bn2DUzezliw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/whoAmI",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"whoAmI"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "Add Content film with season",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"KV\",\n    \"description\": \"TEST\",\n    \"imageUrl\": \"URI1\",\n    \"year\": \"2022-01-20T19:22:19.363Z\",\n    \"date\": \"2022-01-20T19:22:19.363Z\",\n    \"seasons\":[\n        {\n            \"seasonNumber\": 1,\n            \"films\": [\n                {\n                    \"title\": \"filmName1\"\n                },\n                {\n                    \"title\": \"filmName1\"\n                }\n            ]\n        },\n        {\n            \"seasonNumber\": 2,\n            \"films\": [\n                {\n                    \"title\": \"filmName2\"\n                },\n                {\n                    \"title\": \"filmName2\"\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/content",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Content film",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"HEY\",\n    \"description\": \"TEST 1\",\n    \"imageUrl\": \"URI2\",\n    \"year\": \"2022-01-20T19:22:19.363Z\",\n    \"date\": \"2022-01-20T19:22:19.363Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/content",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDI5NTgyNTQsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0Mjk1ODI1NCwiZXhwIjoxNjQyOTYxODU0LCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.cTC7pNOTUFE4npQrmZJa_lmOVsdQc3XqOU_VRLrd66Cl_X3Y8FLHqToc0nE13-YUpVaBPqWpumiVPkeS07snTe1U5kAurHrpoIgD2msZx0xgM6Yzf0pCFomHn1HICy8nGu1enKvHBZuoNwZf0GwSeu2DIvPfmGzxTc8wZqIK6t2FXk54SHoZ4aHU1H8lrJvdKFUAkhomSS3IyvoGeh5E4MDkcANcfZuK5pINjq9233y8OwJf7k7Q0sqSq2vPyZVsvIp6g-qJngT7geTcV-xIqo8IeYzm9L9bra3cBxJUASX8phFrXs23FbY3S3tH1qVSmBJUdGBi1E8dDSeRnuGyRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/contents",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"contents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Content By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDI5NTgyNTQsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0Mjk1ODI1NCwiZXhwIjoxNjQyOTYxODU0LCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.cTC7pNOTUFE4npQrmZJa_lmOVsdQc3XqOU_VRLrd66Cl_X3Y8FLHqToc0nE13-YUpVaBPqWpumiVPkeS07snTe1U5kAurHrpoIgD2msZx0xgM6Yzf0pCFomHn1HICy8nGu1enKvHBZuoNwZf0GwSeu2DIvPfmGzxTc8wZqIK6t2FXk54SHoZ4aHU1H8lrJvdKFUAkhomSS3IyvoGeh5E4MDkcANcfZuK5pINjq9233y8OwJf7k7Q0sqSq2vPyZVsvIp6g-qJngT7geTcV-xIqo8IeYzm9L9bra3cBxJUASX8phFrXs23FbY3S3tH1qVSmBJUdGBi1E8dDSeRnuGyRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://[::1]:3000/contents/4493e461-05b0-42dd-a16c-081bbfc6839a",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"contents",
+								"4493e461-05b0-42dd-a16c-081bbfc6839a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upsert season",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"seasonNumber\": 2,\n    \"date\": \"2022-11-01\",\n    \"films\": [\n        {\n            \"title\": \"S 21\"\n        },\n        {\n            \"title\": \"S 22\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/content/4493e461-05b0-42dd-a16c-081bbfc6839a/seasons",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"content",
+								"4493e461-05b0-42dd-a16c-081bbfc6839a",
+								"seasons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Season Film",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Bdd c sf\",\n    \"url\":\"url2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/content/4493e461-05b0-42dd-a16c-081bbfc6839a/seasons/3",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"content",
+								"4493e461-05b0-42dd-a16c-081bbfc6839a",
+								"seasons",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

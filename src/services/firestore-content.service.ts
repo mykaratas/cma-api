@@ -14,34 +14,41 @@ export class FirestoreContentService {
   }
 
   public async addContent(contentData: Content): Promise<string> {
-    const contentUid = uuidv4();
-    const contentRef = this.db.collection(Collections.CONTENTS).doc(contentUid);
+    try {
+      const contentUid = uuidv4();
+      const contentRef = this.db
+        .collection(Collections.CONTENTS)
+        .doc(contentUid);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const {seasons, ...contentRes} = contentData;
+      await contentRef.set(contentRes);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {seasons, ...contentRes} = contentData;
-
-    await contentRef.set(contentRes);
-
-    if (
-      contentData.seasons &&
-      Array.isArray(contentData.seasons) &&
-      contentData.seasons.length > 0
-    ) {
-      const seasonsDoc = contentRef.collection(Collections.SEASONS);
-      for (const season of contentData.seasons) {
-        await seasonsDoc.doc(`season#${season.seasonNumber}`).set(season);
+      if (
+        contentData.seasons &&
+        Array.isArray(contentData.seasons) &&
+        contentData.seasons.length > 0
+      ) {
+        const seasonsDoc = contentRef.collection(Collections.SEASONS);
+        for (const season of contentData.seasons) {
+          await seasonsDoc.doc(`season#${season.seasonNumber}`).set(season);
+        }
       }
+      return contentUid;
+    } catch (err) {
+      throw new Error(err.message);
     }
-
-    return contentUid;
   }
 
   public async addSeason(uid: string, seasonData: AnyObject): Promise<void> {
-    const contentRef = this.db.collection(Collections.CONTENTS).doc(uid); // film id
-    await contentRef
-      .collection(Collections.SEASONS)
-      .doc(`season#${seasonData.seasonNumber}`)
-      .set(seasonData);
+    try {
+      const contentRef = this.db.collection(Collections.CONTENTS).doc(uid); // film id
+      await contentRef
+        .collection(Collections.SEASONS)
+        .doc(`season#${seasonData.seasonNumber}`)
+        .set(seasonData);
+    } catch (err) {
+      throw new Error(err.message);
+    }
   }
 
   public async deleteContent(uid: string): Promise<void> {
@@ -49,46 +56,57 @@ export class FirestoreContentService {
   }
 
   public async updateContent(userData: AnyObject): Promise<void> {
-    await this.db
-      .collection(Collections.USERS)
-      .doc(userData.uid)
-      .update(userData);
+    try {
+      await this.db
+        .collection(Collections.USERS)
+        .doc(userData.uid)
+        .update(userData);
+    } catch (err) {
+      throw new Error(err.message);
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public async getContents(paginate: {limit?: number}): Promise<Content[]> {
-    const dd = await this.db
-      .collection(Collections.CONTENTS)
-      .orderBy('title')
-      .limit(paginate?.limit ?? 50)
-      .get();
-    if (!dd.empty) {
-      return dd.docs.map(d => d.data()) as Content[];
-    } else {
-      return [];
+    try {
+      const documentData = await this.db
+        .collection(Collections.CONTENTS)
+        .orderBy('title')
+        .limit(paginate?.limit ?? 50)
+        .get();
+      if (!documentData.empty) {
+        return documentData.docs.map(d => d.data()) as Content[];
+      } else {
+        return [];
+      }
+    } catch (err) {
+      throw new Error();
     }
   }
 
   public async getContentByUid(
     uid: string,
   ): Promise<AnyObject | null | undefined> {
-    const contentRef = this.db.collection(Collections.CONTENTS).doc(uid);
+    try {
+      const contentRef = this.db.collection(Collections.CONTENTS).doc(uid);
+      const seasonRef = await contentRef
+        .collection(Collections.SEASONS)
+        .listDocuments();
+      const seasons: Season[] = [];
+      for (const season of seasonRef) {
+        const seasonData = (await season.get()).data() as Season;
+        seasons.push(seasonData);
+      }
 
-    const seasonRef = await contentRef
-      .collection(Collections.SEASONS)
-      .listDocuments();
-    const seasons: Season[] = [];
-    for (const season of seasonRef) {
-      const seasonData = (await season.get()).data() as Season;
-      seasons.push(seasonData);
-    }
-
-    const doc = await contentRef.get();
-    if (doc.exists) {
-      const docData = doc.data();
-      return {...docData, ...{seasons}};
-    } else {
-      return null;
+      const doc = await contentRef.get();
+      if (doc.exists) {
+        const docData = doc.data();
+        return {...docData, ...{seasons}};
+      } else {
+        return null;
+      }
+    } catch (err) {
+      throw new Error(err.message);
     }
   }
 
@@ -97,18 +115,21 @@ export class FirestoreContentService {
     seasonNumber: number,
     seasonData: SeasonFilm,
   ): Promise<void> {
-    const contentRef = this.db.collection(Collections.CONTENTS).doc(uid);
+    try {
+      const contentRef = this.db.collection(Collections.CONTENTS).doc(uid);
+      const seasonRef = contentRef
+        .collection(Collections.SEASONS)
+        .doc(`season#${seasonNumber}`);
 
-    const seasonRef = contentRef
-      .collection(Collections.SEASONS)
-      .doc(`season#${seasonNumber}`);
-
-    const data = (await seasonRef.get()).data() as AnyObject;
-    if (data?.films) {
-      data.films.push(seasonData);
-      await seasonRef.set(JSON.parse(JSON.stringify(data)));
-    } else {
-      await seasonRef.set({films: [seasonData], seasonNumber: seasonNumber});
+      const data = (await seasonRef.get()).data() as AnyObject;
+      if (data?.films) {
+        data.films.push(seasonData);
+        await seasonRef.set(JSON.parse(JSON.stringify(data)));
+      } else {
+        await seasonRef.set({films: [seasonData], seasonNumber: seasonNumber});
+      }
+    } catch (err) {
+      throw new Error(err.message);
     }
   }
 }

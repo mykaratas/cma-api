@@ -1,7 +1,7 @@
 import {Model, model, property} from '@loopback/repository';
 import {SeasonFilm} from '.';
 
-@model({settings: {strict: true}})
+@model({settings: {strict: false}})
 export class Season extends Model {
   @property({
     type: 'number',
@@ -11,8 +11,14 @@ export class Season extends Model {
 
   @property({
     type: 'string',
+    required: true,
   })
-  date?: string;
+  title?: string;
+
+  @property({
+    type: 'date',
+  })
+  releaseDate?: string;
 
   @property({
     type: 'array',

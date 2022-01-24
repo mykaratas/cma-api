@@ -1,22 +1,21 @@
 import {Model, model, property} from '@loopback/repository';
 
-@model({settings: {strict: true}})
+@model({settings: {strict: false}})
 export class SeasonFilm extends Model {
   @property({
     type: 'string',
-    required: true,
   })
-  title: string;
+  title?: string;
+
+  @property({
+    type: 'date',
+  })
+  releaseDate?: string;
 
   @property({
     type: 'string',
   })
-  date?: string;
-
-  @property({
-    type: 'string',
-  })
-  url: string;
+  url?: string;
 
   // Indexer property to allow additional data
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

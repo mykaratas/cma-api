@@ -1,6 +1,5 @@
 import {/* inject, */ BindingScope, injectable} from '@loopback/core';
 import * as firebaseAdmin from 'firebase-admin';
-import {UserRecord} from 'firebase-admin/lib/auth/user-record';
 
 class FirebaseAdminServiceError extends Error {
   statusCode: number;
@@ -14,16 +13,16 @@ class FirebaseAdminServiceError extends Error {
 export class FirebaseAdminService {
   constructor(/* Add @inject to inject parameters */) {}
 
-  async createUser(email: string, password: string): Promise<UserRecord> {
-    try {
-      return await firebaseAdmin.auth().createUser({
-        email,
-        password,
-      });
-    } catch (error) {
-      throw new FirebaseAdminServiceError(error.message);
-    }
-  }
+  // async createUser(email: string, password: string): Promise<UserRecord> {
+  //   try {
+  //     return await firebaseAdmin.auth().createUser({
+  //       email,
+  //       password,
+  //     });
+  //   } catch (error) {
+  //     throw new FirebaseAdminServiceError(error.message);
+  //   }
+  // }
 
   async deleteUser(uid: string, currentUserUid: string) {
     try {

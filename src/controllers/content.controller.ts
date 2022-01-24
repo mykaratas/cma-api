@@ -45,8 +45,8 @@ export class ContentController {
       },
     })
     content: Content,
-  ): Promise<void> {
-    await this.firestoreContentService.addContent(content);
+  ): Promise<string> {
+    return this.firestoreContentService.addContent(content);
   }
 
   @post('/content/{id}/seasons', {

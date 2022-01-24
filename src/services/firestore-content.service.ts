@@ -13,7 +13,7 @@ export class FirestoreContentService {
     this.db = getFirestore();
   }
 
-  public async addContent(contentData: Content): Promise<void> {
+  public async addContent(contentData: Content): Promise<string> {
     const contentUid = uuidv4();
     const contentRef = this.db.collection(Collections.CONTENTS).doc(contentUid);
 
@@ -32,6 +32,8 @@ export class FirestoreContentService {
         await seasonsDoc.doc(`season#${season.seasonNumber}`).set(season);
       }
     }
+
+    return contentUid;
   }
 
   public async addSeason(uid: string, seasonData: AnyObject): Promise<void> {

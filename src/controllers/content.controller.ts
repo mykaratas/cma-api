@@ -21,11 +21,7 @@ export class ContentController {
           'application/json': {
             schema: {
               type: 'object',
-              properties: {
-                // token: {
-                //   type: 'string',
-                // },
-              },
+              properties: {},
             },
           },
         },

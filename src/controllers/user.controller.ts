@@ -43,6 +43,12 @@ export class NewUserRequest {
     required: false,
   })
   birthDate?: string;
+
+  @property({
+    type: 'string',
+    required: false,
+  })
+  name?: string;
 }
 
 const CredentialsSchema: SchemaObject = {

@@ -42,6 +42,11 @@ export class Content extends Model {
   })
   seasons?: Season[];
 
+  @property({
+    type: 'string',
+  })
+  videoUrl?: string;
+
   // Define well-known properties here
 
   // Indexer property to allow additional data

@@ -55,7 +55,8 @@ export class FirebaseAuthService {
       const user = {
         id: userCredentials.user.uid,
         email: userReq.email,
-        birthDate: userReq.birthDate,
+        birthDate: userReq?.birthDate,
+        name: userReq?.name,
       } as User;
 
       await this.firestoreUserService.addUser(user);

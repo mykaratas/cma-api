@@ -104,8 +104,7 @@ export class FirestoreContentService {
       .doc(`season#${seasonNumber}`);
 
     const data = (await seasonRef.get()).data() as AnyObject;
-
-    if (!data?.films) {
+    if (data?.films) {
       data.films.push(seasonData);
       await seasonRef.set(JSON.parse(JSON.stringify(data)));
     } else {

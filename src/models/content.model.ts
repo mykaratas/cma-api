@@ -2,7 +2,7 @@ import {Model, model, property} from '@loopback/repository';
 import {ContentTypes} from '../enums';
 import {Season} from './season.model';
 
-@model({settings: {strict: true}})
+@model({settings: {strict: false}})
 export class Content extends Model {
   @property({
     type: 'string',

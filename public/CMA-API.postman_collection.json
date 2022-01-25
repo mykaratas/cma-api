@@ -9,13 +9,13 @@
 			"name": "user",
 			"item": [
 				{
-					"name": "Singup",
+					"name": "Singup(Create User)",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"9qq123345@mk.com\",\n    \"password\": \"12345678\",\n    \"birthDate\": \"11-22-2020\"\n}",
+							"raw": "{\n    \"email\": \"9qq123345@mk.com\",\n    \"password\": \"12345678\",\n    \"birthDate\": \"11-22-2020\",\n    \"name\":\"Malik Karatas\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDI5NTgyNTQsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0Mjk1ODI1NCwiZXhwIjoxNjQyOTYxODU0LCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.cTC7pNOTUFE4npQrmZJa_lmOVsdQc3XqOU_VRLrd66Cl_X3Y8FLHqToc0nE13-YUpVaBPqWpumiVPkeS07snTe1U5kAurHrpoIgD2msZx0xgM6Yzf0pCFomHn1HICy8nGu1enKvHBZuoNwZf0GwSeu2DIvPfmGzxTc8wZqIK6t2FXk54SHoZ4aHU1H8lrJvdKFUAkhomSS3IyvoGeh5E4MDkcANcfZuK5pINjq9233y8OwJf7k7Q0sqSq2vPyZVsvIp6g-qJngT7geTcV-xIqo8IeYzm9L9bra3cBxJUASX8phFrXs23FbY3S3tH1qVSmBJUdGBi1E8dDSeRnuGyRw",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDMwNTc4MTAsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0MzA1NzgxMCwiZXhwIjoxNjQzMDYxNDEwLCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.SUgVb_a172gA9a4TGkyGkIFGEbJjpV18MPscY10RLgMr6Csq08fXgRKfAdBPOzpC3gnYkdD_Uwg8EZFWzu7fnRZilrqqbfY8TrYRhSWdILY4GLg3ca7iTjlcFZy21qvbe2Y1U310NO86CxteMlQ0-DL1sGMQsilQ1mhQuoR2WNUThD3osztFcvEoGp8bn5iX2basrxdVhPoucats1DuGWNaS0mkPCIgI_LZEJpkdl0eN2HH4-g8gBpSztUPf1doRA0-9qftKK-I4TMCY-yAo9sCgh4lPFGqwRtqzzEq7zfH7mguYAiQzbrGVUZ3aqqZtcPiK1yrO5z_j70BZuzDKXw",
 									"type": "string"
 								}
 							]
@@ -140,11 +140,21 @@
 				{
 					"name": "Add Content film with season",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDMwNTc4MTAsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0MzA1NzgxMCwiZXhwIjoxNjQzMDYxNDEwLCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.SUgVb_a172gA9a4TGkyGkIFGEbJjpV18MPscY10RLgMr6Csq08fXgRKfAdBPOzpC3gnYkdD_Uwg8EZFWzu7fnRZilrqqbfY8TrYRhSWdILY4GLg3ca7iTjlcFZy21qvbe2Y1U310NO86CxteMlQ0-DL1sGMQsilQ1mhQuoR2WNUThD3osztFcvEoGp8bn5iX2basrxdVhPoucats1DuGWNaS0mkPCIgI_LZEJpkdl0eN2HH4-g8gBpSztUPf1doRA0-9qftKK-I4TMCY-yAo9sCgh4lPFGqwRtqzzEq7zfH7mguYAiQzbrGVUZ3aqqZtcPiK1yrO5z_j70BZuzDKXw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"KV\",\n    \"description\": \"TEST\",\n    \"imageUrl\": \"URI1\",\n    \"year\": \"2022-01-20T19:22:19.363Z\",\n    \"date\": \"2022-01-20T19:22:19.363Z\",\n    \"seasons\":[\n        {\n            \"seasonNumber\": 1,\n            \"films\": [\n                {\n                    \"title\": \"filmName1\"\n                },\n                {\n                    \"title\": \"filmName1\"\n                }\n            ]\n        },\n        {\n            \"seasonNumber\": 2,\n            \"films\": [\n                {\n                    \"title\": \"filmName2\"\n                },\n                {\n                    \"title\": \"filmName2\"\n                }\n            ]\n        }\n    ]\n}",
+							"raw": "{\n    \"title\": \"release test\",\n    \"description\": \"TEST\",\n    \"imageUrl\": \"URI1\",\n    \"year\": \"2022-01-20T19:22:19.363Z\",\n    \"releaseDate\": \"2022-01-20T19:22:19.363Z\",\n    \"videoUrl\":\"videoUrl\",\n    \"seasons\":[\n        {\n            \"seasonNumber\": 1,\n            \"releaseDate\":\"2022-01-20T19:22:19.363Z\",\n            \"films\": [\n                {\n                    \"title\": \"filmName1\",\n                    \"releaseDate\":\"2022-01-20T19:22:19.363Z\"\n                },\n                {\n                    \"title\": \"filmName1\",\n                    \"releaseDate\":\"2022-01-20T19:22:19.363Z\"\n                }\n            ]\n        },\n        {\n            \"seasonNumber\": 2,\n            \"releaseDate\":\"2022-06-20T19:22:19.363Z\",\n            \"films\": [\n                {\n                    \"title\": \"filmName2\",\n                    \"releaseDate\":\"2022-06-20T19:22:19.363Z\"\n                },\n                {\n                    \"title\": \"filmName2\",\n                    \"releaseDate\":\"2022-06-20T19:22:19.363Z\"\n                }\n            ]\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -168,11 +178,21 @@
 				{
 					"name": "Add Content film",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDMwNTc4MTAsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0MzA1NzgxMCwiZXhwIjoxNjQzMDYxNDEwLCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.SUgVb_a172gA9a4TGkyGkIFGEbJjpV18MPscY10RLgMr6Csq08fXgRKfAdBPOzpC3gnYkdD_Uwg8EZFWzu7fnRZilrqqbfY8TrYRhSWdILY4GLg3ca7iTjlcFZy21qvbe2Y1U310NO86CxteMlQ0-DL1sGMQsilQ1mhQuoR2WNUThD3osztFcvEoGp8bn5iX2basrxdVhPoucats1DuGWNaS0mkPCIgI_LZEJpkdl0eN2HH4-g8gBpSztUPf1doRA0-9qftKK-I4TMCY-yAo9sCgh4lPFGqwRtqzzEq7zfH7mguYAiQzbrGVUZ3aqqZtcPiK1yrO5z_j70BZuzDKXw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"HEY\",\n    \"description\": \"TEST 1\",\n    \"imageUrl\": \"URI2\",\n    \"year\": \"2022-01-20T19:22:19.363Z\",\n    \"date\": \"2022-01-20T19:22:19.363Z\"\n}",
+							"raw": "{\n    \"title\": \"HEY\",\n    \"description\": \"TEST 1\",\n    \"imageUrl\": \"URI2\",\n    \n    \"relaseDate\": \"2022-01-20T19:22:19.363Z\",\n    \"videoUrl\":\"url1\",\n    \"contentType\":\"movie\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -194,6 +214,67 @@
 					"response": []
 				},
 				{
+					"name": "Upsert season",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"seasonNumber\": 2,\n    \"releaseDate\": \"2022-11-01\",\n    \"films\": [\n        {\n            \"title\": \"S 21\"\n        },\n        {\n            \"title\": \"S 22\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/content/4493e461-05b0-42dd-a16c-081bbfc6839a/seasons",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"content",
+								"4493e461-05b0-42dd-a16c-081bbfc6839a",
+								"seasons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Season Film",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Bdd c sf\",\n    \"url\":\"url2\",\n    \"releaseDate\":\"2022-11-01\",\n    \"ext\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://[::1]:3000/content/1756fe52-a9fe-473d-b760-6f4c67231c09/seasons/4",
+							"protocol": "http",
+							"host": [
+								"[::1]"
+							],
+							"port": "3000",
+							"path": [
+								"content",
+								"1756fe52-a9fe-473d-b760-6f4c67231c09",
+								"seasons",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get Contents",
 					"request": {
 						"auth": {
@@ -201,7 +282,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDI5NTgyNTQsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0Mjk1ODI1NCwiZXhwIjoxNjQyOTYxODU0LCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.cTC7pNOTUFE4npQrmZJa_lmOVsdQc3XqOU_VRLrd66Cl_X3Y8FLHqToc0nE13-YUpVaBPqWpumiVPkeS07snTe1U5kAurHrpoIgD2msZx0xgM6Yzf0pCFomHn1HICy8nGu1enKvHBZuoNwZf0GwSeu2DIvPfmGzxTc8wZqIK6t2FXk54SHoZ4aHU1H8lrJvdKFUAkhomSS3IyvoGeh5E4MDkcANcfZuK5pINjq9233y8OwJf7k7Q0sqSq2vPyZVsvIp6g-qJngT7geTcV-xIqo8IeYzm9L9bra3cBxJUASX8phFrXs23FbY3S3tH1qVSmBJUdGBi1E8dDSeRnuGyRw",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNhYTE0OGNkMDcyOGUzMDNkMzI2ZGU1NjBhMzVmYjFiYTMyYTUxNDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY29udGVudC1tYW5hZ2VtZW50LWFwaSIsImF1ZCI6ImNvbnRlbnQtbWFuYWdlbWVudC1hcGkiLCJhdXRoX3RpbWUiOjE2NDMwNTc4MTAsInVzZXJfaWQiOiJVcFhFMVhxUE1OaElYVHlTTnhjQURjMnlnMWMyIiwic3ViIjoiVXBYRTFYcVBNTmhJWFR5U054Y0FEYzJ5ZzFjMiIsImlhdCI6MTY0MzA1NzgxMCwiZXhwIjoxNjQzMDYxNDEwLCJlbWFpbCI6IjlxcTEyMzM0NUBtay5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiOXFxMTIzMzQ1QG1rLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.SUgVb_a172gA9a4TGkyGkIFGEbJjpV18MPscY10RLgMr6Csq08fXgRKfAdBPOzpC3gnYkdD_Uwg8EZFWzu7fnRZilrqqbfY8TrYRhSWdILY4GLg3ca7iTjlcFZy21qvbe2Y1U310NO86CxteMlQ0-DL1sGMQsilQ1mhQuoR2WNUThD3osztFcvEoGp8bn5iX2basrxdVhPoucats1DuGWNaS0mkPCIgI_LZEJpkdl0eN2HH4-g8gBpSztUPf1doRA0-9qftKK-I4TMCY-yAo9sCgh4lPFGqwRtqzzEq7zfH7mguYAiQzbrGVUZ3aqqZtcPiK1yrO5z_j70BZuzDKXw",
 									"type": "string"
 								}
 							]
@@ -209,7 +290,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://[::1]:3000/contents",
+							"raw": "http://[::1]:3000/contents?limit=1",
 							"protocol": "http",
 							"host": [
 								"[::1]"
@@ -217,6 +298,12 @@
 							"port": "3000",
 							"path": [
 								"contents"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -247,67 +334,6 @@
 							"path": [
 								"contents",
 								"4493e461-05b0-42dd-a16c-081bbfc6839a"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Upsert season",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"seasonNumber\": 2,\n    \"date\": \"2022-11-01\",\n    \"films\": [\n        {\n            \"title\": \"S 21\"\n        },\n        {\n            \"title\": \"S 22\"\n        }\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://[::1]:3000/content/4493e461-05b0-42dd-a16c-081bbfc6839a/seasons",
-							"protocol": "http",
-							"host": [
-								"[::1]"
-							],
-							"port": "3000",
-							"path": [
-								"content",
-								"4493e461-05b0-42dd-a16c-081bbfc6839a",
-								"seasons"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Season Film",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"title\": \"Bdd c sf\",\n    \"url\":\"url2\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://[::1]:3000/content/4493e461-05b0-42dd-a16c-081bbfc6839a/seasons/3",
-							"protocol": "http",
-							"host": [
-								"[::1]"
-							],
-							"port": "3000",
-							"path": [
-								"content",
-								"4493e461-05b0-42dd-a16c-081bbfc6839a",
-								"seasons",
-								"3"
 							]
 						}
 					},
